@@ -1,12 +1,12 @@
 defmodule ShortLyWeb.ShortenedLinkControllerTest do
   use ShortLyWeb.ConnCase, async: false
-  alias ShortLy.{Shortener, Shortener.Helper, Shortener.ShortenedLink, Repo}
-  import Ecto.Query
+  alias ShortLy.{Shortener, Shortener.ShortenedLink, Repo}
 
   @google_link "https://www.google.com"
   @youtube_link "https://www.youtube.com"
   @invalid_link "www.isnotaccepted.com.without.full.format"
   @invalid_internal_link "onepieceisjustthatgood"
+
   setup %{conn: conn} do
     {:ok, %ShortenedLink{internal_link: internal_link}} =
       Shortener.create_shortened_link(%{referenced_link: @google_link})
@@ -74,7 +74,7 @@ defmodule ShortLyWeb.ShortenedLinkControllerTest do
          %{conn: conn, internal_link: internal_link} do
       conn = conn |> get(Routes.shortened_link_path(conn, :show, internal_link))
 
-      assert @google_link = redirect_path = redirected_to(conn, 302)
+      assert @google_link = redirected_to(conn, 302)
     end
 
     test "when passed a invalid internal_link, redirect to the index page with errors",

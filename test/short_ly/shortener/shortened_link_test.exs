@@ -1,8 +1,7 @@
 defmodule ShortLy.Shortener.ShortenedLinkTest do
   use ShortLy.{DataCase}
 
-  alias ShortLy.{Shortener.Helper, Shortener.ShortenedLink}
-  alias Ecto.{Changeset}
+  alias ShortLy.{Shortener.ShortenedLink}
 
   @valid_link "https://www.youtube.com"
   @invalid_link "www.youtube.com"

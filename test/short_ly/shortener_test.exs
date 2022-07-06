@@ -1,6 +1,6 @@
 defmodule ShortLy.ShortenerTest do
   use ShortLy.{DataCase}
-  alias ShortLy.{Shortener, Shortener.Helper, Shortener.ShortenedLink, Repo}
+  alias ShortLy.{Shortener, Shortener.ShortenedLink, Repo}
 
   @valid_referenced_links %{
     youtube: "https://www.youtube.com",
