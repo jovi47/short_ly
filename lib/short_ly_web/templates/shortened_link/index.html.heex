@@ -1,0 +1,26 @@
+<h1>Listing Url shortened</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Internal link</th>
+      <th>Referenced link</th>
+      <th>Used</th>
+      <th>Converted</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for shortened_link <- @shortened_links do %>
+    <tr>
+      <td><%= shortened_link.internal_link %></td>
+      <td><%= shortened_link.referenced_link %></td>
+      <td><%= shortened_link.used %></td>
+      <td><%= shortened_link.converted %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Shortened link", to: Routes.shortened_link_path(@conn, :new) %></span>
